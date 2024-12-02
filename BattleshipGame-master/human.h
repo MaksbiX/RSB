@@ -20,4 +20,4 @@ public:
     selectship *selship[4];
 };
 
-#endif // HUMAN_H
+#endif

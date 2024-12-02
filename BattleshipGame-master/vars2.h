@@ -1,15 +1,14 @@
 #ifndef VARS_H
 #define VARS_H
 
-#define WID 12 //CHANGE THESE TO VARIABLES LATER
+#define WID 12
 #define LEN 12
 #define SQUARE 30
 #define ANIMEFRAMES 20
 
 enum gamephases
 {
-    //    duringanimation,
-    //    gamebegin,
+
     placeships,
     playerturn,
     CPUturn,
@@ -56,4 +55,4 @@ enum cpu_point_is
 };
 
 
-#endif // VARS_H
+#endif

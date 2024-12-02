@@ -1,7 +1,6 @@
 
 #include "selectship.h"
 #include "displayships.h"
-#include "vars.h"
 
 selectship::selectship(QGraphicsScene *Mscene, int num)
 {
@@ -13,20 +12,10 @@ selectship::selectship(QGraphicsScene *Mscene, int num)
 
     Show = true;
     Sunk = false;
-    /*
-    redBrush = new QBrush(Qt::red);
-    blueBrush = new QBrush(Qt::blue);
-    grayBrush = new QBrush(Qt::lightGray);
 
-    definedBrush = new QBrush(Qt::lightGray);
-
-    blackpen = new QPen(Qt::black);
-    blackpen->setWidth(2);
-    */
 
     orient = 0;
-    //setFlag(ItemIsMovable);
-    // DrawShip();
+
 }
 
 QRectF selectship::boundingRect() const
@@ -69,16 +58,6 @@ void selectship::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
         brush.setColor(Qt::red);
     }
 
-    /*
-    if(Change)
-    {
-        brush.setColor(Qt::blue);
-    }
-    else
-    {
-        brush.setColor(Qt::red);
-    }
-    */
 
     painter->fillRect(rec,brush);
     // painter->drawEllipse(rec);
@@ -89,10 +68,7 @@ void selectship::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWid
 void selectship::DrawShip()
 {
 
-    // rectangle[n][m] = scene->addRect(x, y, offset, offset, *blackpen, *definedBrush);
-    // scene->addRect(SQUARE, SQUARE, SQUARE, 120, *blackpen, *redBrush);
-    //ship->boundingRect(SQUARE, 120);
-    // setFlag(QGraphicsItem::ItemIsMovable);
+
 }
 
 
@@ -102,8 +78,7 @@ void selectship::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *)
 
     if(displayships::phaseIsSetupShips)
         delete this;
-    // update();
-    // QGraphicsItem::mouseDoubleClickEvent(event);
+
 }
 
 

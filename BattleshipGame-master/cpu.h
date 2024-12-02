@@ -20,10 +20,10 @@ public:
     short int* direction;
     TARGET_POINT* target;
     TARGET_POINT* lasttarget;
-    //CPU-specific displayships
+
 };
 
-//CPU_Turn functions
+
     void findTarget(CPU_POINT* CPUGrid[WID][LEN], TARGET_POINT* target);
         bool allPointsAroundAreMisses(CPU_POINT* CPUGrid[WID][LEN], TARGET_POINT* target);
         short int howmanyMSPoints(CPU_POINT* CPUGrid[WID][LEN]);
@@ -44,4 +44,4 @@ public:
     void suspectPoint(CPU_POINT* CPUGrid[WID][LEN], TARGET_POINT* target, short int* direction);
     void changePointsAround(CPU_POINT* CPUGrid[WID][LEN], short int x, short int y, short int pointiscurrent, short int pointbecomes);
 
-#endif // CPU_H
+#endif

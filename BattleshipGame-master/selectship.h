@@ -45,4 +45,4 @@ private slots:
 };
 
 
-#endif // SELECTSHIP_H
+#endif

@@ -11,18 +11,7 @@ Blast::Blast(qreal x, qreal y)
 
     int StartX = 0;
     int StartY = 0;
-    /*
-    if((qrand() % 1))
-    {
-        StartX = (qrand() % 150);
-        StartY = (qrand() % 100);
-    }
-    else
-    {
-        StartX = (qrand() % -150);
-        StartY = (qrand() % -100);
-    }
-    */
+
     StartX = x;
     StartY = y;
     setPos(mapToParent(StartX,StartY));

@@ -86,7 +86,7 @@ TARGET_POINT CPU::Turn(int, int, MYPOINT* OPGrid[WID][LEN])
     return CPU_Turn(OPGrid);
 }
 
-//WATCH OUT!!! In the functions, x = W and y = L. This may cause a problem if something else happens.
+
 TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
 {
     static TARGET_POINT* lasttarget = 0;
@@ -232,7 +232,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
             short int w;
             short int l;
 
-            for(w = 0; w < WID; ++w)//WATCH OUT!!! Here, I'm making w and l less than their maximum places. If the grid is not set up like a normal array, this may cause a problem.
+            for(w = 0; w < WID; ++w)
             {
                 for(l = 0; l < LEN; ++l)
                 {
@@ -243,7 +243,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
 
             return thismany;
         }
-        short int randomnum(short int bound)//WATCH OUT!!! This function can return 0 and a number one less than bound. May cause a bug.
+        short int randomnum(short int bound)
         {
             if(bound == 0 || bound == 1)
                 return 0;
@@ -255,7 +255,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
             short int w;
             short int l;
 
-            for(w = 0; w < WID; ++w)//WATCH OUT!!! Here, I'm making w and l less than their maximum places. If the grid is not set up like a normal array, this may cause a problem.
+            for(w = 0; w < WID; ++w)
             {
                 for(l = 0; l < LEN; ++l)
                 {
@@ -291,7 +291,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
             short int l;
             short int randpoint = randomnum(howmanyUnknownPoints(CPUGrid));
 
-            for(w = 0; w < WID; ++w)//WATCH OUT!!! Here, I'm making w and l less than their maximum places. If the grid is not set up like a normal array, this may cause a problem.
+            for(w = 0; w < WID; ++w)
             {
                 for(l = 0; l < LEN; ++l)
                 {
@@ -327,7 +327,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
             short int w;
             short int l;
 
-            for(w = 0; w < WID; ++w)//WATCH OUT!!! Here, I'm making w and l less than their maximum places. If the grid is not set up like a normal array, this may cause a problem.
+            for(w = 0; w < WID; ++w)
             {
                 for(l = 0; l < LEN; ++l)
                 {
@@ -356,7 +356,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
         target->cpupnt = *CPUGrid[target->x][target->y];
     }
         void setDirection(TARGET_POINT* target, TARGET_POINT* lasttarget, short int* direction)
-        {//WATCH OUT!!! THIS ALL MAY NEED TO BE EDITED! It is assuming the grid's width is it's x value, it's length is it's y value, and it is numbered from the top-left corner.
+        {
             *direction = NoD;
             if(target->y < lasttarget->y)
             {
@@ -386,7 +386,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
             short int w;
             short int l;
 
-            for(w = 0; w < WID; ++w)//WATCH OUT!!! Here, I'm making w and l less than their maximum places. If the grid is not set up like a normal array, this may cause a problem.
+            for(w = 0; w < WID; ++w)
             {
                 for(l = 0; l < LEN; ++l)
                 {
@@ -404,7 +404,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
             short int w;
             short int l;
 
-            for(w = 0; w < WID; ++w)//WATCH OUT!!! Here, I'm making w and l less than their maximum places. If the grid is not set up like a normal array, this may cause a problem.
+            for(w = 0; w < WID; ++w)
             {
                 for(l = 0; l < LEN; ++l)
                 {
@@ -421,7 +421,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
         short int w;
         short int l;
 
-        for(w = 0; w < WID; ++w)//WATCH OUT!!! Here, I'm making w and l less than their maximum places. If the grid is not set up like a normal array, this may cause a problem.
+        for(w = 0; w < WID; ++w)
         {
             for(l = 0; l < LEN; ++l)
             {
@@ -471,7 +471,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
         whatShouldHitsBe(CPUGrid, hits);
     }
         void whatShouldHitsBe(CPU_POINT* CPUGrid[WID][LEN], short int* hits)
-        {//BUG COULD BE HERE
+        {
             short int w;
             short int l;
 
@@ -523,7 +523,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
         }
             short int foundHitsAroundPoint(CPU_POINT* CPUGrid[WID][LEN], short int x, short int y, short int r)
             {
-                //WATCH OUT!!! This whole thig here.
+
                 switch(r)
                 {
                 case NoD:
@@ -562,14 +562,14 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
     }
 
     void cutOffMSPoints(CPU_POINT* CPUGrid[WID][LEN], TARGET_POINT* target, short int* direction)
-    {//WATCH OUT!!! THIS ALL MAY NEED TO BE EDITED! It is assuming the grid's width is it's x value, it's length is it's y value, and it is numbered from the top-left corner.
+    {
         short int x = target->x;
         short int y = target->y;
 
         switch(*direction)
-        {           //NOTE: The coordinates are set in the OPPOSITE direction,
-        case Up:    //which is why they're going the opposite way (y should be
-            ++y;    //decreasing to go Up).
+        {
+        case Up:
+            ++y;
             break;
         case Down:
             --y;
@@ -610,7 +610,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
     }
 
     void suspectPoint(CPU_POINT* CPUGrid[WID][LEN], TARGET_POINT* target, short int* direction)
-    {//WATCH OUT!!! THIS ALL MAY NEED TO BE EDITED! It is assuming the grid's width is it's x value, it's length is it's y value, and it is numbered from the top-left corner.
+    {
         short int x = target->x;
         short int y = target->y;
 
@@ -639,7 +639,7 @@ TARGET_POINT CPU::CPU_Turn(MYPOINT* OPGrid[WID][LEN])
 
     void changePointsAround(CPU_POINT* CPUGrid[WID][LEN], short int x, short int y, short int pointiscurrent, short int pointbecomes)
     {
-        //WATCH OUT!!! This whole thig here.
+
         if(x-1 > -1 && CPUGrid[x-1][y]->pointis == pointiscurrent)
             CPUGrid[x-1][y]->pointis = pointbecomes;
         if(x+1 < WID && CPUGrid[x+1][y]->pointis == pointiscurrent)

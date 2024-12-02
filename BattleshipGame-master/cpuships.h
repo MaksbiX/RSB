@@ -6,7 +6,6 @@
 #include <QGraphicsScene>
 #include <QGraphicsItem>
 
-#include "vars.h"
 
 class cpuships : public QObject, public QGraphicsItem
 {
@@ -43,4 +42,4 @@ signals:
 
 };
 
-#endif // CPUSHIPS_H
+#endif

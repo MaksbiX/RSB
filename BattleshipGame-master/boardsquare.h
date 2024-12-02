@@ -12,7 +12,7 @@ class boardsquare : public QObject, public QGraphicsItem
     Q_OBJECT
 public:
     boardsquare(QGraphicsScene *Mscene, int size, int x, int y, int n, int m);
-    // QGraphicsItem square;
+
     int x_pos, y_pos;
     int squaresize;
 
@@ -42,4 +42,4 @@ private slots:
     void OnReceiveOrders(int n, int m, int doThis);
 };
 
-#endif // boardsquare_H
+#endif

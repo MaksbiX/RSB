@@ -1,5 +1,4 @@
 #include "battleshipgame.h"
-#include "gameships.h"
 #include "blast.h"
 
 
@@ -12,7 +11,7 @@ BattleshipGame::BattleshipGame()
     NumberOfHumanGridPointsShot = 0;
     animeframes = 0;
     blastanimation = new Blast(0,0);
-//    boardsquare *squares[WID][LEN];
+
 }
 BattleshipGame::~BattleshipGame()
 {
@@ -26,7 +25,7 @@ bool BattleshipGame::hasLost(MYPOINT* Grid[WID][LEN])
     short int w;
     short int l;
 
-    for(w = 0; w < WID; ++w)//WATCH OUT!!! Here, I'm making w and l less than their maximum places. If the grid is not set up like a normal array, this may cause a problem.
+    for(w = 0; w < WID; ++w)
     {
         for(l = 0; l < LEN; ++l)
         {

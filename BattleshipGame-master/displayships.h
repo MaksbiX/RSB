@@ -52,4 +52,4 @@ signals:
 };
 
 
-#endif // displayships_H
+#endif

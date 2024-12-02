@@ -1,13 +1,11 @@
 #include "human.h"
-#include "gameships.h"
 #include <QDebug>
 
 
 Human::Human()
 {
     isCPU = false;
-    //displayships
-    //selectships
+
 }
 
 Human::~Human()
@@ -21,7 +19,7 @@ TARGET_POINT Human::Turn(int n, int m, MYPOINT* OPGrid[WID][LEN])
     return Human_Turn(n,m,OPGrid);
 }
 
-TARGET_POINT Human::Human_Turn(int n, int m, MYPOINT*OPGrid[WID][LEN])//Note: Unlike the SFML version's PLAYER_Fire, this function doesn't check if the square is already hit (as that's already covered with the boardsquare's ability to disable itself after being clicked).
+TARGET_POINT Human::Human_Turn(int n, int m, MYPOINT*OPGrid[WID][LEN])
 {
      TARGET_POINT ret;
 
@@ -67,12 +65,7 @@ bool Human::allShipsArePlaced()
                         for(int second=0;second<first;++second)
                         {
                             if(d_ship[first]->intersects(*d_ship[second]) || d_ship[first]->contains(*d_ship[second]))
-                            {   /*
-                                qDebug()<<"Ships are placed incorrectly.";
-                                qDebug()<<"Ship 0: x" << d_ship[0]->x() << " y" << d_ship[0]->y();
-                                qDebug()<<"Ship 1: x" << d_ship[1]->x() << " y" << d_ship[1]->y();
-                                qDebug()<<"Ship 2: x" << d_ship[2]->x() << " y" << d_ship[2]->y();
-                                qDebug()<<"Ship 3: x" << d_ship[3]->x() << " y" << d_ship[3]->y();  */
+                            {
                                 delete d_ship[0];
                                 delete d_ship[1];
                                 delete d_ship[2];
@@ -80,12 +73,7 @@ bool Human::allShipsArePlaced()
                                 return false;
                             }
                         }
-                    }   /*
-                    qDebug()<<"Ships are placed correctly.";
-                    qDebug()<<"Ship 0: x" << d_ship[0]->x() << " y" << d_ship[0]->y();
-                    qDebug()<<"Ship 1: x" << d_ship[1]->x() << " y" << d_ship[1]->y();
-                    qDebug()<<"Ship 2: x" << d_ship[2]->x() << " y" << d_ship[2]->y();
-                    qDebug()<<"Ship 3: x" << d_ship[3]->x() << " y" << d_ship[3]->y();  */
+                    }
                     delete d_ship[0];
                     delete d_ship[1];
                     delete d_ship[2];

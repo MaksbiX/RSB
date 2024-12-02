@@ -2,7 +2,6 @@
 #define GAMESHIPS_H
 
 #include <QMainWindow>
-#include <vector>
 #include "vars.h"
 
 
@@ -29,4 +28,4 @@ public:
     QVector<bool> hitpoints;
 };
 
-#endif // GAMESHIPS_H
+#endif

@@ -12,16 +12,7 @@ displayships::displayships(QGraphicsScene *Mscene, int num)
 
     shipsize = shipnum+2;
 
-    /*
-    redBrush = new QBrush(Qt::red);
-    blueBrush = new QBrush(Qt::blue);
-    grayBrush = new QBrush(Qt::lightGray);
 
-    definedBrush = new QBrush(Qt::lightGray);
-
-    blackpen = new QPen(Qt::black);
-    blackpen->setWidth(2);
-    */
 
     orient = 0;
     orientations[shipnum] = 0;
@@ -65,16 +56,7 @@ void displayships::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
         brush.setColor(Qt::green);
     }
 
-    /*
-    if(Change)
-    {
-        brush.setColor(Qt::blue);
-    }
-    else
-    {
-        brush.setColor(Qt::red);
-    }
-    */
+
 
     painter->fillRect(rec,brush);
     // painter->drawEllipse(rec);
@@ -84,10 +66,7 @@ void displayships::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QW
 
 void displayships::DrawShip()
 {
-    // rectangle[n][m] = scene->addRect(x, y, offset, offset, *blackpen, *definedBrush);
-    // scene->addRect(SQUARE, SQUARE, SQUARE, SQUARE*4, *blackpen, *redBrush);
-    //ship->boundingRect(SQUARE, SQUARE*4);
-    // setFlag(QGraphicsItem::ItemIsMovable);
+
 }
 
 
@@ -140,8 +119,6 @@ void displayships::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 if(phaseIsSetupShips)
 {
         ReOrientShip();
-    // ship->update();
-    // update();
 
     QGraphicsItem::mouseDoubleClickEvent(event);
 }
@@ -153,8 +130,6 @@ void displayships::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 if(phaseIsSetupShips)
 {
     Pressed = false;
-    // DrawShip();
-    // ship->update();
 
     QPointF xandy;
 

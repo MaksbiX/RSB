@@ -1,6 +1,5 @@
 #include "gameships.h"
 #include "vars.h"
-#include <vector>
 
 gameships::gameships(short int sn)
 {

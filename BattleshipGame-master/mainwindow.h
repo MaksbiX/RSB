@@ -3,11 +3,7 @@
 
 #include <QMainWindow>
 #include <QMessageBox>
-#include "vars.h"
-#include "displayships.h"
-#include "selectship.h"
 #include "battleshipgame.h"
-#include "boardsquare.h"
 #include <QString>
 #include <QTimer>
 
@@ -26,7 +22,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-//    QGraphicsRectItem *rectangle[WID*10][LEN*10];
+
 
     BattleshipGame* bsg;
 
@@ -58,4 +54,4 @@ signals:
     void Sunk(int n);
 };
 
-#endif // MAINWINDOW_H
+#endif

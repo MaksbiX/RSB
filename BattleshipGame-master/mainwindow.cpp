@@ -38,14 +38,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->graphicsView->setScene(bsg->scene);
     ui->graphicsView_2->setScene(bsg->scene2);
     ui->graphicsView_3->setScene(bsg->scene3);
-    // ui->graphicsView->setSceneRect(0, 0, (SQUARE * 10), (SQUARE * 10));
-    // ui->graphicsView->setSceneRect(0, 0, 0, 0);
 
     redBrush = new QBrush(Qt::red);
     blueBrush = new QBrush(Qt::blue);
     grayBrush = new QBrush(Qt::lightGray);
 
-    // definedBrush = new QBrush(Qt::lightGray);
+
     definedBrush = new QBrush(*thiscolor);
 
 
@@ -53,15 +51,12 @@ MainWindow::MainWindow(QWidget *parent) :
     blackpen->setWidth(1);
 
     timesup = new QTimer(this);
-//    connect(timesup, SIGNAL(timeout()), bsg->scene,SLOT(advance()));  //Unnoted because animation will be handled by bsg's advance().
-//    connect(timesup, SIGNAL(timeout()), bsg->scene2,SLOT(advance()));
+
     connect(timesup, SIGNAL(timeout()), bsg,SLOT(advance()));
-    timesup->start(500/ANIMEFRAMES);//1000 = normal speed
+    timesup->start(500/ANIMEFRAMES);
 
 
     DrawLayout();
-   // bsg->ship = new displayships(scene);
-   // scene->addItem(bsg->ship);
 
 
     bsg->humanplayer->selship[0] = new selectship(bsg->scene3, 3);
@@ -109,55 +104,12 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect(this, SIGNAL(Sunk(int)), bsg->cpuship, SLOT(OnSunk(int)));
     connect(bsg, SIGNAL(sinkCPUShip(int)), bsg->cpuship[3], SLOT(OnSunk(int)));
 
-    // TEST CODE
-    //emit Sunk(0);
-    //emit Sunk(1);
-    //emit Sunk(2);
-    //emit Sunk(3);
 
-    /*for(short int x = 0; x < WID; ++x)
-    {
-        for(short int y = 0; y < LEN; ++y)
-        {
-            if(x > (y*.5) && x < (y*2) && y > (x*.5) && y < (x*2))      //Down-Right
-            {
-                emit SendDothis(x,y,1);
-            }
-          //if(x < (y*.5) && x > (y*2) && y < (x*.5) && y > (x*2))      //Up-Left
-          //if(x < -(y*.5) && x > -(y*2) && y > -(x*.5) && y < -(x*2))  //Down-Left
-          //if(x > -(y*.5) && x < -(y*2) && y < -(x*.5) && y > -(x*2))  //Up-Right
-        }
-    }*/
-    /*
-    //Set WID and LEN to 15 for this code to work well
-    emit SendDothis(7,7,64);
-    for(short int x = -7; x < WID-7; ++x)
-    {
-        for(short int y = -7; y < LEN-7; ++y)
-        {
-            if(x > -(y*.5) && x < -(y*2) && y < -(x*.5) && y > -(x*2))
-            {
-                emit SendDothis(x+7,y+7,1);
-            }
-        }
-    }
-    bsg->gamephase = playerturn;
-    */
 }
 
 MainWindow::~MainWindow()
 {
-/*    delete ui;
-    delete redBrush;
-    delete blueBrush;
-    delete grayBrush;
-    delete definedBrush;
-    delete blackpen;
-    delete thiscolor;
-    delete bsg->scene;
-    delete bsg->scene2;
-    delete bsg->scene3;
-    delete bsg;*/
+
 }
 
 void MainWindow::DrawLayout()
@@ -321,17 +273,7 @@ void MainWindow::OnDisplayshipClicked(int)
 
 void MainWindow::OnReceiveNM(int n, int m)
 {
-/*
-    //DEBUG MESSAGE BOX:
-    QString qStrN = QString::number(n);
-    QString qStrM = QString::number(m);
 
-    QMessageBox msgBox;
-    msgBox.setText("Show N and M");
-    msgBox.setInformativeText("N = " + qStrN + " and M = " + qStrM);
-    msgBox.setStandardButtons(QMessageBox::Ok);
-    //int ret =
-    msgBox.exec();*/
 
     if(bsg->gamephase==playerturn && bsg->animeframes == 0)
     {
@@ -374,12 +316,7 @@ void MainWindow::on_pushButton_2_clicked()
                 bsg->humanplayer->PlayerShips[ship]->direction = Left;
                 bsg->humanplayer->placeShip(ship+1,(displayships::x_pos[ship]/SQUARE)-(bsg->humanplayer->PlayerShips[ship]->size),displayships::y_pos[ship]/SQUARE);
             }
-//DEBUG CODE
-/*            QPen apen(Qt::black);
-            QBrush abrush(Qt::red);
-            for(short int pos = 0; pos < ship+2; ++pos)
-                bsg->scene->addRect(bsg->humanplayer->PlayerShips[ship]->points[pos].x()*SQUARE, bsg->humanplayer->PlayerShips[ship]->points[pos].y()*SQUARE, SQUARE, SQUARE, apen, abrush);
-*/
+
         }
         bsg->cpuplayer->setUpCPUShips();
 
@@ -415,9 +352,7 @@ void MainWindow::on_pushButton_2_clicked()
 
         ui->pushButton_2->setText("New Game");
 
-        // TEST CODE
-//        bsg->sinkPlayerShip(2);
-  //      bsg->sinkPlayerShip(1);
+
     }
     else
     {

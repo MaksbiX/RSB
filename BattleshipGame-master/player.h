@@ -21,4 +21,4 @@ public:
     TARGET_POINT targetedPoint;
 };
 
-#endif // PLAYER_H
+#endif

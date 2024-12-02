@@ -19,4 +19,4 @@ protected:
     void advance(int phase);
 };
 
-#endif // BLAST_H
+#endif

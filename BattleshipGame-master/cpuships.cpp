@@ -1,5 +1,4 @@
 #include "cpuships.h"
-#include "vars.h"
 
 cpuships::cpuships(QGraphicsScene *Mscene, int num)
 {
@@ -10,20 +9,10 @@ cpuships::cpuships(QGraphicsScene *Mscene, int num)
     shipsize = shipnum + 2;
 
     Show = false;
-    /*
-    redBrush = new QBrush(Qt::red);
-    blueBrush = new QBrush(Qt::blue);
-    grayBrush = new QBrush(Qt::lightGray);
 
-    definedBrush = new QBrush(Qt::lightGray);
-
-    blackpen = new QPen(Qt::black);
-    blackpen->setWidth(2);
-    */
 
     orient = 0;
-    //setFlag(ItemIsMovable);
-    // DrawShip();
+
 }
 
 QRectF cpuships::boundingRect() const
@@ -64,18 +53,7 @@ void cpuships::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidge
         painter->fillRect(rec,brush);
     }
 
-    /*
-    if(Change)
-    {
-        brush.setColor(Qt::blue);
-    }
-    else
-    {
-        brush.setColor(Qt::red);
-    }
-    */
 
-    // painter->drawEllipse(rec);
 }
 
 
